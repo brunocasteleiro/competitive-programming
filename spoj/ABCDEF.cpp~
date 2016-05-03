@@ -1,0 +1,49 @@
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
+
+int first(int lo, int hi, int searchSpace[], int target);
+int last(int lo, int hi, int searchSpace[], int target);
+
+using namespace std;
+
+int main()
+{
+    
+}
+
+int last(int lo, int hi, int searchSpace[], int target)
+{
+    int max = hi;
+    while(lo<=hi)
+    {
+	int mid = (hi+lo)/2;
+
+        if( (mid == max || target < searchSpace[mid+1]) && target == searchSpace[mid])
+	    return mid;
+	else if(target < searchSpace[mid])
+	    hi = mid-1;
+	else
+	    lo = mid+1;
+    }
+
+    return -1;
+}
+
+int first(int lo, int hi, int searchSpace[], int target)
+{
+    while(lo<=hi)
+    {
+	int mid = (hi+lo)/2;
+	
+	if( (mid == 0 || target > searchSpace[mid-1]) && target == searchSpace[mid])
+	    return mid;
+	else if(target > searchSpace[mid])
+	    lo = mid+1;
+	else
+	    hi = mid-1;
+    }
+
+    return -1;
+}
