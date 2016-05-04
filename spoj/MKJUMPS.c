@@ -49,7 +49,7 @@ void cleanTable(void)
 		for(j=0; j<MAXN; j++)
 			table[i][j] = 'x';
 }
-
+ 
 void search(int posi, int posj, int reachedSquares)
 {
 	if( (posi >= MAXN || posi < 0) || 
