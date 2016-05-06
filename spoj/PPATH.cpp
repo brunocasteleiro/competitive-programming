@@ -69,8 +69,11 @@ int findCheapestPrimePath(int firstPrime, int lastPrime)
 		q.pop();
 
 		if(curPrime == lastPrime)
+		{
 			minPath = min(minPath, curDepth);
-
+			continue;
+		}
+		
 		for(int i=0; i<4; i++)
 		{
 			for(int j=0; j<=9; j++)
